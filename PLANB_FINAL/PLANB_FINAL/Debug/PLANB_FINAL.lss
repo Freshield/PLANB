@@ -1,0 +1,548 @@
+
+PLANB_FINAL.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000002a6  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000080  00800060  000002a6  0000033a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000001  008000e0  008000e0  000003ba  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000003ba  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000003ec  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000080  00000000  00000000  00000428  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000676  00000000  00000000  000004a8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000180  00000000  00000000  00000b1e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000225  00000000  00000000  00000c9e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000120  00000000  00000000  00000ec4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000350  00000000  00000000  00000fe4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000002d5  00000000  00000000  00001334  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000070  00000000  00000000  00001609  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e6 ea       	ldi	r30, 0xA6	; 166
+  68:	f2 e0       	ldi	r31, 0x02	; 2
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a0 3e       	cpi	r26, 0xE0	; 224
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	20 e0       	ldi	r18, 0x00	; 0
+  78:	a0 ee       	ldi	r26, 0xE0	; 224
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a1 3e       	cpi	r26, 0xE1	; 225
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 91 00 	call	0x122	; 0x122 <main>
+  8a:	0c 94 51 01 	jmp	0x2a2	; 0x2a2 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <_Z12delay_secondi>:
+
+void delay_second(int i) 
+{
+	
+	int j;
+	for(;i!=0;i--)
+  92:	00 97       	sbiw	r24, 0x00	; 0
+  94:	41 f4       	brne	.+16     	; 0xa6 <_Z12delay_secondi+0x14>
+  96:	08 95       	ret
+  98:	21 50       	subi	r18, 0x01	; 1
+  9a:	31 09       	sbc	r19, r1
+	{
+		for(j=65535;j!=0;j--);
+  9c:	e9 f7       	brne	.-6      	; 0x98 <_Z12delay_secondi+0x6>
+		{
+			asm volatile ("nop");
+  9e:	00 00       	nop
+
+void delay_second(int i) 
+{
+	
+	int j;
+	for(;i!=0;i--)
+  a0:	01 97       	sbiw	r24, 0x01	; 1
+  a2:	19 f4       	brne	.+6      	; 0xaa <_Z12delay_secondi+0x18>
+  a4:	08 95       	ret
+		asm volatile ("nop");
+	}
+}
+
+void delay_second(int i) 
+{
+  a6:	5f ef       	ldi	r21, 0xFF	; 255
+  a8:	4f ef       	ldi	r20, 0xFF	; 255
+  aa:	25 2f       	mov	r18, r21
+  ac:	34 2f       	mov	r19, r20
+  ae:	f4 cf       	rjmp	.-24     	; 0x98 <_Z12delay_secondi+0x6>
+
+000000b0 <_Z8LED_INITv>:
+
+//************初始化
+void LED_INIT()
+{
+	
+	LED_PORT = 0X00;
+  b0:	1b ba       	out	0x1b, r1	; 27
+	
+	LED_DDR = 0XFF;
+  b2:	8f ef       	ldi	r24, 0xFF	; 255
+  b4:	8a bb       	out	0x1a, r24	; 26
+  b6:	08 95       	ret
+
+000000b8 <_Z19M16_USART_SEND_INITv>:
+//////////////////////////////////////////////////
+////M16 USART
+//////////////////////////////////////////////////
+void M16_USART_SEND_INIT()
+{
+	UBRRL = 95;//********7.3728M 9600 BAUD U2X
+  b8:	8f e5       	ldi	r24, 0x5F	; 95
+  ba:	89 b9       	out	0x09, r24	; 9
+	
+	UCSRA |= (1 << U2X);//*********倍速模式
+  bc:	59 9a       	sbi	0x0b, 1	; 11
+	
+	UCSRB |= (1 << TXCIE)|(1 << UDRIE)|(1 << TXEN);//********发送中断 寄存器空中断 发送使能
+  be:	8a b1       	in	r24, 0x0a	; 10
+  c0:	88 66       	ori	r24, 0x68	; 104
+  c2:	8a b9       	out	0x0a, r24	; 10
+	
+	UCSRC |= (1 << URSEL)|(1 << UCSZ1)|(1 << UCSZ0);//*********异步操作 无校验 一位停止位 8位数据 
+  c4:	80 b5       	in	r24, 0x20	; 32
+  c6:	86 68       	ori	r24, 0x86	; 134
+  c8:	80 bd       	out	0x20, r24	; 32
+  ca:	08 95       	ret
+
+000000cc <_Z20M16_USART_SEND_ALONEc>:
+}
+
+void M16_USART_SEND_ALONE(char data)
+{
+	/* 等待发送缓冲器为空 */
+	while ( !( UCSRA & (1<<UDRE)) )
+  cc:	5d 9b       	sbis	0x0b, 5	; 11
+  ce:	fe cf       	rjmp	.-4      	; 0xcc <_Z20M16_USART_SEND_ALONEc>
+	;
+	/* 将数据放入缓冲器，发送数据*/
+	UDR = data;
+  d0:	8c b9       	out	0x0c, r24	; 12
+  d2:	08 95       	ret
+
+000000d4 <_Z21M16_USART_SEND_STRINGPcii>:
+}
+//参数:字符串首地址,字符串长度(使用'\0'来标识),光标归位标志位,换行标志位
+//************本程序是必须把一个文字发完才能结束 
+//*********有问题的部分：中断的添加可能会导致程序不通
+void M16_USART_SEND_STRING(char data_string[],int r,int n)
+{
+  d4:	ef 92       	push	r14
+  d6:	ff 92       	push	r15
+  d8:	0f 93       	push	r16
+  da:	1f 93       	push	r17
+  dc:	cf 93       	push	r28
+  de:	df 93       	push	r29
+  e0:	ec 01       	movw	r28, r24
+  e2:	7b 01       	movw	r14, r22
+  e4:	8a 01       	movw	r16, r20
+	for (int i = 0;data_string[i] != '\0';i++)
+  e6:	88 81       	ld	r24, Y
+  e8:	88 23       	and	r24, r24
+  ea:	31 f0       	breq	.+12     	; 0xf8 <_Z21M16_USART_SEND_STRINGPcii+0x24>
+  ec:	21 96       	adiw	r28, 0x01	; 1
+	{
+		M16_USART_SEND_ALONE(data_string[i]);
+  ee:	0e 94 66 00 	call	0xcc	; 0xcc <_Z20M16_USART_SEND_ALONEc>
+//参数:字符串首地址,字符串长度(使用'\0'来标识),光标归位标志位,换行标志位
+//************本程序是必须把一个文字发完才能结束 
+//*********有问题的部分：中断的添加可能会导致程序不通
+void M16_USART_SEND_STRING(char data_string[],int r,int n)
+{
+	for (int i = 0;data_string[i] != '\0';i++)
+  f2:	89 91       	ld	r24, Y+
+  f4:	81 11       	cpse	r24, r1
+  f6:	fb cf       	rjmp	.-10     	; 0xee <_Z21M16_USART_SEND_STRINGPcii+0x1a>
+	{
+		M16_USART_SEND_ALONE(data_string[i]);
+	}
+	
+	if (r == 0)
+  f8:	ef 28       	or	r14, r15
+  fa:	11 f4       	brne	.+4      	; 0x100 <_Z21M16_USART_SEND_STRINGPcii+0x2c>
+	{
+		asm volatile ("nop");
+  fc:	00 00       	nop
+  fe:	03 c0       	rjmp	.+6      	; 0x106 <_Z21M16_USART_SEND_STRINGPcii+0x32>
+	}
+	else
+	{
+		M16_USART_SEND_ALONE('\r');//光标归位
+ 100:	8d e0       	ldi	r24, 0x0D	; 13
+ 102:	0e 94 66 00 	call	0xcc	; 0xcc <_Z20M16_USART_SEND_ALONEc>
+	}
+	
+	if (n == 0)
+ 106:	01 2b       	or	r16, r17
+ 108:	11 f4       	brne	.+4      	; 0x10e <_Z21M16_USART_SEND_STRINGPcii+0x3a>
+	{
+		asm volatile ("nop");
+ 10a:	00 00       	nop
+ 10c:	03 c0       	rjmp	.+6      	; 0x114 <_Z21M16_USART_SEND_STRINGPcii+0x40>
+	}
+	else
+	{
+		M16_USART_SEND_ALONE('\n');//换行
+ 10e:	8a e0       	ldi	r24, 0x0A	; 10
+ 110:	0e 94 66 00 	call	0xcc	; 0xcc <_Z20M16_USART_SEND_ALONEc>
+	}
+}
+ 114:	df 91       	pop	r29
+ 116:	cf 91       	pop	r28
+ 118:	1f 91       	pop	r17
+ 11a:	0f 91       	pop	r16
+ 11c:	ff 90       	pop	r15
+ 11e:	ef 90       	pop	r14
+ 120:	08 95       	ret
+
+00000122 <main>:
+uchar flow = 0;
+
+
+int main(void)
+{
+    LED_INIT(); 
+ 122:	0e 94 58 00 	call	0xb0	; 0xb0 <_Z8LED_INITv>
+    
+    M16_USART_SEND_INIT();
+ 126:	0e 94 5c 00 	call	0xb8	; 0xb8 <_Z19M16_USART_SEND_INITv>
+		    flow = 2;
+		    break;
+		    
+		    case 2: M16_USART_SEND_STRING("I PROMISE I LOVE YOU",1,1);
+		    
+		    LED_PORT = 0XFF;
+ 12a:	cf ef       	ldi	r28, 0xFF	; 255
+		    delay_second(4);
+		    LED_PORT = 0x00;
+		    delay_second(4);
+		    flow = 3;
+ 12c:	0f 2e       	mov	r0, r31
+ 12e:	f3 e0       	ldi	r31, 0x03	; 3
+ 130:	ef 2e       	mov	r14, r31
+ 132:	f0 2d       	mov	r31, r0
+		    
+		    LED_PORT = 0XFF;
+		    delay_second(4);
+		    LED_PORT = 0x00;
+		    delay_second(4);
+		    flow = 5;
+ 134:	0f 2e       	mov	r0, r31
+ 136:	f5 e0       	ldi	r31, 0x05	; 5
+ 138:	ff 2e       	mov	r15, r31
+ 13a:	f0 2d       	mov	r31, r0
+		    
+		    LED_PORT = 0XFF;
+		    delay_second(4);
+		    LED_PORT = 0x00;
+		    delay_second(4);
+		    flow = 4;
+ 13c:	04 e0       	ldi	r16, 0x04	; 4
+		    
+		    LED_PORT = 0XFF;
+		    delay_second(4);
+		    LED_PORT = 0x00;
+		    delay_second(4);
+		    flow = 1;
+ 13e:	11 e0       	ldi	r17, 0x01	; 1
+		    
+		    LED_PORT = 0XFF;
+		    delay_second(4);
+		    LED_PORT = 0x00;
+		    delay_second(4);
+		    flow = 2;
+ 140:	d2 e0       	ldi	r29, 0x02	; 2
+    M16_USART_SEND_INIT();
+    
+    while(1)
+    {
+	    
+	    switch (flow)
+ 142:	80 91 e0 00 	lds	r24, 0x00E0
+ 146:	82 30       	cpi	r24, 0x02	; 2
+ 148:	c9 f1       	breq	.+114    	; 0x1bc <main+0x9a>
+ 14a:	28 f4       	brcc	.+10     	; 0x156 <main+0x34>
+ 14c:	88 23       	and	r24, r24
+ 14e:	61 f0       	breq	.+24     	; 0x168 <main+0x46>
+ 150:	81 30       	cpi	r24, 0x01	; 1
+ 152:	f9 f0       	breq	.+62     	; 0x192 <main+0x70>
+ 154:	87 c0       	rjmp	.+270    	; 0x264 <main+0x142>
+ 156:	84 30       	cpi	r24, 0x04	; 4
+ 158:	09 f4       	brne	.+2      	; 0x15c <main+0x3a>
+ 15a:	5a c0       	rjmp	.+180    	; 0x210 <main+0xee>
+ 15c:	08 f4       	brcc	.+2      	; 0x160 <main+0x3e>
+ 15e:	43 c0       	rjmp	.+134    	; 0x1e6 <main+0xc4>
+ 160:	85 30       	cpi	r24, 0x05	; 5
+ 162:	09 f4       	brne	.+2      	; 0x166 <main+0x44>
+ 164:	6a c0       	rjmp	.+212    	; 0x23a <main+0x118>
+ 166:	7e c0       	rjmp	.+252    	; 0x264 <main+0x142>
+	    {
+		    case 0: M16_USART_SEND_STRING("I LOVE YOU",1,1);
+ 168:	41 e0       	ldi	r20, 0x01	; 1
+ 16a:	50 e0       	ldi	r21, 0x00	; 0
+ 16c:	61 e0       	ldi	r22, 0x01	; 1
+ 16e:	70 e0       	ldi	r23, 0x00	; 0
+ 170:	8f e7       	ldi	r24, 0x7F	; 127
+ 172:	90 e0       	ldi	r25, 0x00	; 0
+ 174:	0e 94 6a 00 	call	0xd4	; 0xd4 <_Z21M16_USART_SEND_STRINGPcii>
+		    
+		    LED_PORT = 0XFF;
+ 178:	cb bb       	out	0x1b, r28	; 27
+		    delay_second(4);
+ 17a:	84 e0       	ldi	r24, 0x04	; 4
+ 17c:	90 e0       	ldi	r25, 0x00	; 0
+ 17e:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    LED_PORT = 0x00;
+ 182:	1b ba       	out	0x1b, r1	; 27
+		    delay_second(4);
+ 184:	84 e0       	ldi	r24, 0x04	; 4
+ 186:	90 e0       	ldi	r25, 0x00	; 0
+ 188:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    flow = 1;
+ 18c:	10 93 e0 00 	sts	0x00E0, r17
+		    break;
+ 190:	d8 cf       	rjmp	.-80     	; 0x142 <main+0x20>
+		    
+		    case 1: M16_USART_SEND_STRING("OF COURSE I LOVE YOU",1,1);
+ 192:	41 e0       	ldi	r20, 0x01	; 1
+ 194:	50 e0       	ldi	r21, 0x00	; 0
+ 196:	61 e0       	ldi	r22, 0x01	; 1
+ 198:	70 e0       	ldi	r23, 0x00	; 0
+ 19a:	80 e6       	ldi	r24, 0x60	; 96
+ 19c:	90 e0       	ldi	r25, 0x00	; 0
+ 19e:	0e 94 6a 00 	call	0xd4	; 0xd4 <_Z21M16_USART_SEND_STRINGPcii>
+		    
+		    LED_PORT = 0XFF;
+ 1a2:	cb bb       	out	0x1b, r28	; 27
+		    delay_second(4);
+ 1a4:	84 e0       	ldi	r24, 0x04	; 4
+ 1a6:	90 e0       	ldi	r25, 0x00	; 0
+ 1a8:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    LED_PORT = 0x00;
+ 1ac:	1b ba       	out	0x1b, r1	; 27
+		    delay_second(4);
+ 1ae:	84 e0       	ldi	r24, 0x04	; 4
+ 1b0:	90 e0       	ldi	r25, 0x00	; 0
+ 1b2:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    flow = 2;
+ 1b6:	d0 93 e0 00 	sts	0x00E0, r29
+		    break;
+ 1ba:	c3 cf       	rjmp	.-122    	; 0x142 <main+0x20>
+		    
+		    case 2: M16_USART_SEND_STRING("I PROMISE I LOVE YOU",1,1);
+ 1bc:	41 e0       	ldi	r20, 0x01	; 1
+ 1be:	50 e0       	ldi	r21, 0x00	; 0
+ 1c0:	61 e0       	ldi	r22, 0x01	; 1
+ 1c2:	70 e0       	ldi	r23, 0x00	; 0
+ 1c4:	85 e7       	ldi	r24, 0x75	; 117
+ 1c6:	90 e0       	ldi	r25, 0x00	; 0
+ 1c8:	0e 94 6a 00 	call	0xd4	; 0xd4 <_Z21M16_USART_SEND_STRINGPcii>
+		    
+		    LED_PORT = 0XFF;
+ 1cc:	cb bb       	out	0x1b, r28	; 27
+		    delay_second(4);
+ 1ce:	84 e0       	ldi	r24, 0x04	; 4
+ 1d0:	90 e0       	ldi	r25, 0x00	; 0
+ 1d2:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    LED_PORT = 0x00;
+ 1d6:	1b ba       	out	0x1b, r1	; 27
+		    delay_second(4);
+ 1d8:	84 e0       	ldi	r24, 0x04	; 4
+ 1da:	90 e0       	ldi	r25, 0x00	; 0
+ 1dc:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    flow = 3;
+ 1e0:	e0 92 e0 00 	sts	0x00E0, r14
+		    break;
+ 1e4:	ae cf       	rjmp	.-164    	; 0x142 <main+0x20>
+		    
+		    
+		    case 3: M16_USART_SEND_STRING("YOU ARE DEFINITELY MY PRINCESS",1,1);
+ 1e6:	41 e0       	ldi	r20, 0x01	; 1
+ 1e8:	50 e0       	ldi	r21, 0x00	; 0
+ 1ea:	61 e0       	ldi	r22, 0x01	; 1
+ 1ec:	70 e0       	ldi	r23, 0x00	; 0
+ 1ee:	8a e8       	ldi	r24, 0x8A	; 138
+ 1f0:	90 e0       	ldi	r25, 0x00	; 0
+ 1f2:	0e 94 6a 00 	call	0xd4	; 0xd4 <_Z21M16_USART_SEND_STRINGPcii>
+		    
+		    LED_PORT = 0XFF;
+ 1f6:	cb bb       	out	0x1b, r28	; 27
+		    delay_second(4);
+ 1f8:	84 e0       	ldi	r24, 0x04	; 4
+ 1fa:	90 e0       	ldi	r25, 0x00	; 0
+ 1fc:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    LED_PORT = 0x00;
+ 200:	1b ba       	out	0x1b, r1	; 27
+		    delay_second(4);
+ 202:	84 e0       	ldi	r24, 0x04	; 4
+ 204:	90 e0       	ldi	r25, 0x00	; 0
+ 206:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    flow = 4;
+ 20a:	00 93 e0 00 	sts	0x00E0, r16
+		    break;
+ 20e:	99 cf       	rjmp	.-206    	; 0x142 <main+0x20>
+		    
+		    
+		    case 4: M16_USART_SEND_STRING("MUA LOVE YOU FOREVER",1,1);
+ 210:	41 e0       	ldi	r20, 0x01	; 1
+ 212:	50 e0       	ldi	r21, 0x00	; 0
+ 214:	61 e0       	ldi	r22, 0x01	; 1
+ 216:	70 e0       	ldi	r23, 0x00	; 0
+ 218:	89 ea       	ldi	r24, 0xA9	; 169
+ 21a:	90 e0       	ldi	r25, 0x00	; 0
+ 21c:	0e 94 6a 00 	call	0xd4	; 0xd4 <_Z21M16_USART_SEND_STRINGPcii>
+		    
+		    LED_PORT = 0XFF;
+ 220:	cb bb       	out	0x1b, r28	; 27
+		    delay_second(4);
+ 222:	84 e0       	ldi	r24, 0x04	; 4
+ 224:	90 e0       	ldi	r25, 0x00	; 0
+ 226:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    LED_PORT = 0x00;
+ 22a:	1b ba       	out	0x1b, r1	; 27
+		    delay_second(4);
+ 22c:	84 e0       	ldi	r24, 0x04	; 4
+ 22e:	90 e0       	ldi	r25, 0x00	; 0
+ 230:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    flow = 5;
+ 234:	f0 92 e0 00 	sts	0x00E0, r15
+		    break;
+ 238:	84 cf       	rjmp	.-248    	; 0x142 <main+0x20>
+		    
+		    
+		    case 5: M16_USART_SEND_STRING("I MISS YOU EVERYDAY",1,1);
+ 23a:	41 e0       	ldi	r20, 0x01	; 1
+ 23c:	50 e0       	ldi	r21, 0x00	; 0
+ 23e:	61 e0       	ldi	r22, 0x01	; 1
+ 240:	70 e0       	ldi	r23, 0x00	; 0
+ 242:	8e eb       	ldi	r24, 0xBE	; 190
+ 244:	90 e0       	ldi	r25, 0x00	; 0
+ 246:	0e 94 6a 00 	call	0xd4	; 0xd4 <_Z21M16_USART_SEND_STRINGPcii>
+		    
+		    LED_PORT = 0XFF;
+ 24a:	cb bb       	out	0x1b, r28	; 27
+		    delay_second(4);
+ 24c:	84 e0       	ldi	r24, 0x04	; 4
+ 24e:	90 e0       	ldi	r25, 0x00	; 0
+ 250:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    LED_PORT = 0x00;
+ 254:	1b ba       	out	0x1b, r1	; 27
+		    delay_second(4);
+ 256:	84 e0       	ldi	r24, 0x04	; 4
+ 258:	90 e0       	ldi	r25, 0x00	; 0
+ 25a:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    flow = 0;
+ 25e:	10 92 e0 00 	sts	0x00E0, r1
+		    break;
+ 262:	6f cf       	rjmp	.-290    	; 0x142 <main+0x20>
+		    
+		    default: M16_USART_SEND_STRING("ERROR APPEAR",1,1);
+ 264:	41 e0       	ldi	r20, 0x01	; 1
+ 266:	50 e0       	ldi	r21, 0x00	; 0
+ 268:	61 e0       	ldi	r22, 0x01	; 1
+ 26a:	70 e0       	ldi	r23, 0x00	; 0
+ 26c:	82 ed       	ldi	r24, 0xD2	; 210
+ 26e:	90 e0       	ldi	r25, 0x00	; 0
+ 270:	0e 94 6a 00 	call	0xd4	; 0xd4 <_Z21M16_USART_SEND_STRINGPcii>
+		    
+		    LED_PORT = 0XFF;
+ 274:	cb bb       	out	0x1b, r28	; 27
+		    delay_second(1);
+ 276:	81 e0       	ldi	r24, 0x01	; 1
+ 278:	90 e0       	ldi	r25, 0x00	; 0
+ 27a:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    LED_PORT = 0X00;
+ 27e:	1b ba       	out	0x1b, r1	; 27
+		    delay_second(1);
+ 280:	81 e0       	ldi	r24, 0x01	; 1
+ 282:	90 e0       	ldi	r25, 0x00	; 0
+ 284:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    LED_PORT = 0XFF;
+ 288:	cb bb       	out	0x1b, r28	; 27
+		    delay_second(1);
+ 28a:	81 e0       	ldi	r24, 0x01	; 1
+ 28c:	90 e0       	ldi	r25, 0x00	; 0
+ 28e:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    LED_PORT = 0X00;
+ 292:	1b ba       	out	0x1b, r1	; 27
+		    delay_second(1);
+ 294:	81 e0       	ldi	r24, 0x01	; 1
+ 296:	90 e0       	ldi	r25, 0x00	; 0
+ 298:	0e 94 49 00 	call	0x92	; 0x92 <_Z12delay_secondi>
+		    flow = 0;
+ 29c:	10 92 e0 00 	sts	0x00E0, r1
+		    break;
+ 2a0:	50 cf       	rjmp	.-352    	; 0x142 <main+0x20>
+
+000002a2 <_exit>:
+ 2a2:	f8 94       	cli
+
+000002a4 <__stop_program>:
+ 2a4:	ff cf       	rjmp	.-2      	; 0x2a4 <__stop_program>
