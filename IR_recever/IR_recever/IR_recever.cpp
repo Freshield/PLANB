@@ -7,9 +7,9 @@
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include <C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\system\lib_delay.h>
-#include <C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\device\lib_led.h>
-#include <C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\device\lib_IR_m16.h>
+#include <D:\MEGA\EDEN\avr\system\lib_delay.h>
+#include <D:\MEGA\EDEN\avr\device\lib_led.h>
+#include <D:\MEGA\EDEN\avr\device\lib_IR_m16.h>
 
 uchar model = 0;
 uchar figure = 0;
@@ -73,7 +73,7 @@ int main(void)
 		   count ++;
 		   
 	   }
-	   if (lister == 6)
+	   if (lister >= 6)
 	   {
 		   delay_second(15);
 		   LED_PORT = buffer[1];

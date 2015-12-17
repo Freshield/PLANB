@@ -555,18 +555,18 @@ END GROUP
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x169 IR_recever.o
 
-.debug_line     0x00000000      0x290
+.debug_line     0x00000000      0x254
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x290 IR_recever.o
+ .debug_line    0x00000000      0x254 IR_recever.o
 
 .debug_frame    0x00000000      0x1b8
  *(.debug_frame)
  .debug_frame   0x00000000      0x1b8 IR_recever.o
 
-.debug_str      0x00000000      0x476
+.debug_str      0x00000000      0x45a
  *(.debug_str)
- .debug_str     0x00000000      0x476 IR_recever.o
-                                0x4af (size before relaxing)
+ .debug_str     0x00000000      0x45a IR_recever.o
+                                0x493 (size before relaxing)
 
 .debug_loc      0x00000000      0x252
  *(.debug_loc)

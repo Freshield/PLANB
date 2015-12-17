@@ -19,15 +19,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   7 .debug_abbrev 00000169  00000000  00000000  00000bce  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000290  00000000  00000000  00000d37  2**0
+  8 .debug_line   00000254  00000000  00000000  00000d37  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000001b8  00000000  00000000  00000fc8  2**2
+  9 .debug_frame  000001b8  00000000  00000000  00000f8c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000476  00000000  00000000  00001180  2**0
+ 10 .debug_str    0000045a  00000000  00000000  00001144  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000252  00000000  00000000  000015f6  2**0
+ 11 .debug_loc    00000252  00000000  00000000  0000159e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000a8  00000000  00000000  00001848  2**0
+ 12 .debug_ranges 000000a8  00000000  00000000  000017f0  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -346,7 +346,7 @@ int main(void)
  1b6:	78 94       	sei
 		   
 	   }
-	   if (lister == 6)
+	   if (lister >= 6)
 	   {
 		   delay_second(15);
 		   LED_PORT = buffer[1];
@@ -404,10 +404,10 @@ int main(void)
  214:	80 93 62 00 	sts	0x0062, r24
 		   
 	   }
-	   if (lister == 6)
+	   if (lister >= 6)
  218:	80 91 73 00 	lds	r24, 0x0073
  21c:	86 30       	cpi	r24, 0x06	; 6
- 21e:	71 f6       	brne	.-100    	; 0x1bc <main+0x10>
+ 21e:	70 f2       	brcs	.-100    	; 0x1bc <main+0x10>
 	   {
 		   delay_second(15);
  220:	8f e0       	ldi	r24, 0x0F	; 15

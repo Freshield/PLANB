@@ -7,11 +7,11 @@
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include <C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\system\lib_delay.h>
-#include <C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\function\lib_pwm_m16.h>
-#include <C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\device\lib_IR_m16.h>
-#include <C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\system\lib_external_interrupt_m16.h>
-#include <C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\device\lib_keyboard.h>
+#include <D:\MEGA\EDEN\avr\system\lib_delay.h>
+#include <D:\MEGA\EDEN\avr\function\lib_pwm_m16.h>
+#include <D:\MEGA\EDEN\avr\device\lib_IR_m16.h>
+#include <D:\MEGA\EDEN\avr\system\lib_external_interrupt_m16.h>
+#include <D:\MEGA\EDEN\avr\device\lib_keyboard.h>
 
 uchar statue = 0;
 uchar time_lock = 0;
