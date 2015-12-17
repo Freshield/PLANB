@@ -1,0 +1,887 @@
+
+IR_sender.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000412  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000004  00800060  00000412  000004a6  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000003  00800064  00800064  000004aa  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000004aa  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000004dc  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000001a8  00000000  00000000  00000518  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000b69  00000000  00000000  000006c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000002f9  00000000  00000000  00001229  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000065f  00000000  00000000  00001522  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000480  00000000  00000000  00001b84  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000af4  00000000  00000000  00002004  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000826  00000000  00000000  00002af8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000210  00000000  00000000  0000331e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 31 00 	jmp	0x62	; 0x62 <__ctors_end>
+   4:	0c 94 d7 00 	jmp	0x1ae	; 0x1ae <__vector_1>
+   8:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+   c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  10:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  14:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  18:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  1c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  20:	0c 94 c8 00 	jmp	0x190	; 0x190 <__vector_8>
+  24:	0c 94 ba 00 	jmp	0x174	; 0x174 <__vector_9>
+  28:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  2c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  30:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  34:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  38:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  3c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  40:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  44:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  48:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  4c:	0c 94 b0 00 	jmp	0x160	; 0x160 <__vector_19>
+  50:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  54:	48 01       	movw	r8, r16
+  56:	62 01       	movw	r12, r4
+  58:	7d 01       	movw	r14, r26
+  5a:	97 01       	movw	r18, r14
+  5c:	b2 01       	movw	r22, r4
+  5e:	cc 01       	movw	r24, r24
+  60:	e7 01       	movw	r28, r14
+
+00000062 <__ctors_end>:
+  62:	11 24       	eor	r1, r1
+  64:	1f be       	out	0x3f, r1	; 63
+  66:	cf e5       	ldi	r28, 0x5F	; 95
+  68:	d4 e0       	ldi	r29, 0x04	; 4
+  6a:	de bf       	out	0x3e, r29	; 62
+  6c:	cd bf       	out	0x3d, r28	; 61
+
+0000006e <__do_copy_data>:
+  6e:	10 e0       	ldi	r17, 0x00	; 0
+  70:	a0 e6       	ldi	r26, 0x60	; 96
+  72:	b0 e0       	ldi	r27, 0x00	; 0
+  74:	e2 e1       	ldi	r30, 0x12	; 18
+  76:	f4 e0       	ldi	r31, 0x04	; 4
+  78:	02 c0       	rjmp	.+4      	; 0x7e <__do_copy_data+0x10>
+  7a:	05 90       	lpm	r0, Z+
+  7c:	0d 92       	st	X+, r0
+  7e:	a4 36       	cpi	r26, 0x64	; 100
+  80:	b1 07       	cpc	r27, r17
+  82:	d9 f7       	brne	.-10     	; 0x7a <__do_copy_data+0xc>
+
+00000084 <__do_clear_bss>:
+  84:	20 e0       	ldi	r18, 0x00	; 0
+  86:	a4 e6       	ldi	r26, 0x64	; 100
+  88:	b0 e0       	ldi	r27, 0x00	; 0
+  8a:	01 c0       	rjmp	.+2      	; 0x8e <.do_clear_bss_start>
+
+0000008c <.do_clear_bss_loop>:
+  8c:	1d 92       	st	X+, r1
+
+0000008e <.do_clear_bss_start>:
+  8e:	a7 36       	cpi	r26, 0x67	; 103
+  90:	b2 07       	cpc	r27, r18
+  92:	e1 f7       	brne	.-8      	; 0x8c <.do_clear_bss_loop>
+  94:	0e 94 07 01 	call	0x20e	; 0x20e <main>
+  98:	0c 94 07 02 	jmp	0x40e	; 0x40e <_exit>
+
+0000009c <__bad_interrupt>:
+  9c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a0 <_Z12delay_reducel>:
+void TIMER1_FASTPWMA_ICR1_time_set(float compare_time,float top_time)//OCR1A为匹配时间 ICR1为总体时间 别写成一样的。。。
+{
+	OCR1A=F_CPU/FN_TIMER1*compare_time;
+	
+	ICR1=F_CPU/FN_TIMER1*top_time;
+}
+  a0:	61 15       	cp	r22, r1
+  a2:	71 05       	cpc	r23, r1
+  a4:	81 05       	cpc	r24, r1
+  a6:	91 05       	cpc	r25, r1
+  a8:	51 f0       	breq	.+20     	; 0xbe <_Z12delay_reducel+0x1e>
+  aa:	61 50       	subi	r22, 0x01	; 1
+  ac:	71 09       	sbc	r23, r1
+  ae:	81 09       	sbc	r24, r1
+  b0:	91 09       	sbc	r25, r1
+	}
+	*/
+	while (delay)
+	{
+		delay--;
+		asm volatile ("nop");
+  b2:	00 00       	nop
+    for(;delay > 1;delay--)
+	{
+		asm volatile ("nop");
+	}
+	*/
+	while (delay)
+  b4:	61 15       	cp	r22, r1
+  b6:	71 05       	cpc	r23, r1
+  b8:	81 05       	cpc	r24, r1
+  ba:	91 05       	cpc	r25, r1
+  bc:	b1 f7       	brne	.-20     	; 0xaa <_Z12delay_reducel+0xa>
+  be:	08 95       	ret
+
+000000c0 <_Z25TIMER1_NORMAL_PWM_MS_INITv>:
+void TIMER1_NORMAL_PWM_MS_INIT()                                                                                             
+{		
+											//!
+	                                                                             
+	//中断初始化                                                                                    
+	TIMSK |= 1<<TOIE1;                                                                                
+  c0:	89 b7       	in	r24, 0x39	; 57
+  c2:	84 60       	ori	r24, 0x04	; 4
+  c4:	89 bf       	out	0x39, r24	; 57
+	//普通PWM模式设置                                                                                         
+	TCCR1B |= (1<<CS12);FN_TIMER1 = 256;//256分频                                                       
+  c6:	8e b5       	in	r24, 0x2e	; 46
+  c8:	84 60       	ori	r24, 0x04	; 4
+  ca:	8e bd       	out	0x2e, r24	; 46
+  cc:	80 e0       	ldi	r24, 0x00	; 0
+  ce:	91 e0       	ldi	r25, 0x01	; 1
+  d0:	90 93 63 00 	sts	0x0063, r25
+  d4:	80 93 62 00 	sts	0x0062, r24
+	//TCCR1B |= 1 << CS10;FN_TIMER1 = 1;//**********1分频
+	//计数器初始化                                                                                    
+	TCNT1 = 0X00;        
+  d8:	1d bc       	out	0x2d, r1	; 45
+  da:	1c bc       	out	0x2c, r1	; 44
+  dc:	08 95       	ret
+
+000000de <_Z25TIMER1_NORMAL_PWM_MS_OPENv>:
+//打开定时器
+void TIMER1_NORMAL_PWM_MS_OPEN()
+{
+	//!
+	//中断初始化
+	TIMSK |= 1<<TOIE1;
+  de:	89 b7       	in	r24, 0x39	; 57
+  e0:	84 60       	ori	r24, 0x04	; 4
+  e2:	89 bf       	out	0x39, r24	; 57
+  e4:	08 95       	ret
+
+000000e6 <_Z26TIMER1_NORMAL_PWM_MS_CLOSEv>:
+//关闭定时器
+void TIMER1_NORMAL_PWM_MS_CLOSE()                                                                                             
+{		
+											//!
+	//计数器初始化                                                                                    
+	TCNT1 = 0X00;                                                                                     
+  e6:	1d bc       	out	0x2d, r1	; 45
+  e8:	1c bc       	out	0x2c, r1	; 44
+	//中断初始化                                                                                    
+	TIMSK &= ~(1<<TOIE1);               
+  ea:	89 b7       	in	r24, 0x39	; 57
+  ec:	8b 7f       	andi	r24, 0xFB	; 251
+  ee:	89 bf       	out	0x39, r24	; 57
+  f0:	08 95       	ret
+
+000000f2 <_Z14IR_sender_initv>:
+ */
+
+void IR_sender_init()
+{
+	//端口初始化
+	IR_sender_DDR |= (1<<IR_sender_OUT);  IR_sender_PORT &= ~(1 << IR_sender_OUT);//要把想相应的端口设为输出并值为零
+  f2:	bb 9a       	sbi	0x17, 3	; 23
+  f4:	c3 98       	cbi	0x18, 3	; 24
+	TCNT0 = 0x00;//计数器初始化
+  f6:	12 be       	out	0x32, r1	; 50
+	TIMSK |= (1<<OCIE0)|(1<<TOIE0);//中断初始化
+  f8:	89 b7       	in	r24, 0x39	; 57
+  fa:	83 60       	ori	r24, 0x03	; 3
+  fc:	89 bf       	out	0x39, r24	; 57
+	//快速PWM模式设置
+	//TCCR1A |= (1<<COM1A1)|(1<<WGM11);//比较匹配清零 TOP置位
+	//TCCR1A |= (1<<COM1A1)| (1<<COM1A0)|(1<<WGM11);//比较匹配置位 TOP清零 使用这个模式 可以通过OCR1A的变化来修改频率 不用时候设为和OCR1A一样 则数值为零
+	//TCCR1B |= (1<<WGM12)|(1<<WGM13)|(1<<CS10);FN_IR = 1;//PWM模式14 TOP为ICR1的值 1分频
+	//TCCR1B |= (1<<WGM12)|(1<<WGM13)|(1<<CS12);FN_IR = 256;//PWM模式14 TOP为ICR1的值 256分频
+	TCCR0 |= (1 << WGM00) | (1 << WGM01) | (1 << COM01) | (1 << COM00) | (1 << CS00);FN_IR = 1;
+  fe:	83 b7       	in	r24, 0x33	; 51
+ 100:	89 67       	ori	r24, 0x79	; 121
+ 102:	83 bf       	out	0x33, r24	; 51
+ 104:	81 e0       	ldi	r24, 0x01	; 1
+ 106:	90 e0       	ldi	r25, 0x00	; 0
+ 108:	90 93 61 00 	sts	0x0061, r25
+ 10c:	80 93 60 00 	sts	0x0060, r24
+ 110:	08 95       	ret
+
+00000112 <_Z14IR_sender_openv>:
+{
+	OCR0 = 149;
+}
+void IR_sender_open()
+{
+	TCCR0 |= (1 << WGM00) | (1 << WGM01) | (1 << COM01) | (1 << COM00) | (1 << CS00);FN_IR = 1;
+ 112:	83 b7       	in	r24, 0x33	; 51
+ 114:	89 67       	ori	r24, 0x79	; 121
+ 116:	83 bf       	out	0x33, r24	; 51
+ 118:	81 e0       	ldi	r24, 0x01	; 1
+ 11a:	90 e0       	ldi	r25, 0x00	; 0
+ 11c:	90 93 61 00 	sts	0x0061, r25
+ 120:	80 93 60 00 	sts	0x0060, r24
+ 124:	08 95       	ret
+
+00000126 <_Z28EXTERNAL_INTERRUPT0_INIT_M16v>:
+
+//**********************************外部中断0
+
+void EXTERNAL_INTERRUPT0_INIT_M16()
+{
+	DDRD &= ~(1 << INT0_FOOT);//*************INT0位设为向内
+ 126:	8a 98       	cbi	0x11, 2	; 17
+	
+	PORTD |= (1 << INT0_FOOT);//*************INT0位值设为高
+ 128:	92 9a       	sbi	0x12, 2	; 18
+	
+	MCUCR |= (1<<ISC01);//外部中断0下降沿产生中断 
+ 12a:	85 b7       	in	r24, 0x35	; 53
+ 12c:	82 60       	ori	r24, 0x02	; 2
+ 12e:	85 bf       	out	0x35, r24	; 53
+	
+	GICR |= (1<<INT0);//开外部中断0
+ 130:	8b b7       	in	r24, 0x3b	; 59
+ 132:	80 64       	ori	r24, 0x40	; 64
+ 134:	8b bf       	out	0x3b, r24	; 59
+ 136:	08 95       	ret
+
+00000138 <_Z28EXTERNAL_INTERRUPT0_OPEN_M16v>:
+}
+//开外部中断0
+void EXTERNAL_INTERRUPT0_OPEN_M16()
+{
+	
+	GICR |= (1<<INT0);//开外部中断0
+ 138:	8b b7       	in	r24, 0x3b	; 59
+ 13a:	80 64       	ori	r24, 0x40	; 64
+ 13c:	8b bf       	out	0x3b, r24	; 59
+ 13e:	08 95       	ret
+
+00000140 <_Z29EXTERNAL_INTERRUPT0_CLOSE_M16v>:
+}
+//关外部中断0
+void EXTERNAL_INTERRUPT0_CLOSE_M16()
+{
+	
+	GICR &= ~(1<<INT0);//开外部中断0
+ 140:	8b b7       	in	r24, 0x3b	; 59
+ 142:	8f 7b       	andi	r24, 0xBF	; 191
+ 144:	8b bf       	out	0x3b, r24	; 59
+ 146:	08 95       	ret
+
+00000148 <_Z11KEY_INT_M16v>:
+ *EXTERNAL_INTERRUPT0_INIT_M16();初始化
+ */
+
+int KEY_INT_M16()//***去抖程序 如果成功则返回0
+{
+	delay_reduce(30000);//***去抖
+ 148:	60 e3       	ldi	r22, 0x30	; 48
+ 14a:	75 e7       	ldi	r23, 0x75	; 117
+ 14c:	80 e0       	ldi	r24, 0x00	; 0
+ 14e:	90 e0       	ldi	r25, 0x00	; 0
+ 150:	0e 94 50 00 	call	0xa0	; 0xa0 <_Z12delay_reducel>
+	
+	uchar get = PIND;//***取得当前的值
+ 154:	80 b3       	in	r24, 0x10	; 16
+	{
+		return 1;
+	}
+	
+
+}
+ 156:	82 fb       	bst	r24, 2
+ 158:	88 27       	eor	r24, r24
+ 15a:	80 f9       	bld	r24, 0
+ 15c:	90 e0       	ldi	r25, 0x00	; 0
+ 15e:	08 95       	ret
+
+00000160 <__vector_19>:
+uchar statue = 0;
+uchar time_lock = 0;
+uchar key_lock = 0;
+
+ISR(TIMER0_COMP_vect)
+{
+ 160:	1f 92       	push	r1
+ 162:	0f 92       	push	r0
+ 164:	0f b6       	in	r0, 0x3f	; 63
+ 166:	0f 92       	push	r0
+ 168:	11 24       	eor	r1, r1
+	
+}
+ 16a:	0f 90       	pop	r0
+ 16c:	0f be       	out	0x3f, r0	; 63
+ 16e:	0f 90       	pop	r0
+ 170:	1f 90       	pop	r1
+ 172:	18 95       	reti
+
+00000174 <__vector_9>:
+
+ISR(TIMER0_OVF_vect)
+{
+ 174:	1f 92       	push	r1
+ 176:	0f 92       	push	r0
+ 178:	0f b6       	in	r0, 0x3f	; 63
+ 17a:	0f 92       	push	r0
+ 17c:	11 24       	eor	r1, r1
+ 17e:	8f 93       	push	r24
+}
+
+
+void IR_sender_service()
+{
+	TCNT0 = 81;
+ 180:	81 e5       	ldi	r24, 0x51	; 81
+ 182:	82 bf       	out	0x32, r24	; 50
+	
+	IR_sender_service();
+	
+	
+}
+ 184:	8f 91       	pop	r24
+ 186:	0f 90       	pop	r0
+ 188:	0f be       	out	0x3f, r0	; 63
+ 18a:	0f 90       	pop	r0
+ 18c:	1f 90       	pop	r1
+ 18e:	18 95       	reti
+
+00000190 <__vector_8>:
+
+ISR(TIMER1_OVF_vect)
+{
+ 190:	1f 92       	push	r1
+ 192:	0f 92       	push	r0
+ 194:	0f b6       	in	r0, 0x3f	; 63
+ 196:	0f 92       	push	r0
+ 198:	11 24       	eor	r1, r1
+ 19a:	8f 93       	push	r24
+	time_lock = 1;
+ 19c:	81 e0       	ldi	r24, 0x01	; 1
+ 19e:	80 93 65 00 	sts	0x0065, r24
+}
+ 1a2:	8f 91       	pop	r24
+ 1a4:	0f 90       	pop	r0
+ 1a6:	0f be       	out	0x3f, r0	; 63
+ 1a8:	0f 90       	pop	r0
+ 1aa:	1f 90       	pop	r1
+ 1ac:	18 95       	reti
+
+000001ae <__vector_1>:
+
+ISR(INT0_vect)
+{
+ 1ae:	1f 92       	push	r1
+ 1b0:	0f 92       	push	r0
+ 1b2:	0f b6       	in	r0, 0x3f	; 63
+ 1b4:	0f 92       	push	r0
+ 1b6:	11 24       	eor	r1, r1
+ 1b8:	2f 93       	push	r18
+ 1ba:	3f 93       	push	r19
+ 1bc:	4f 93       	push	r20
+ 1be:	5f 93       	push	r21
+ 1c0:	6f 93       	push	r22
+ 1c2:	7f 93       	push	r23
+ 1c4:	8f 93       	push	r24
+ 1c6:	9f 93       	push	r25
+ 1c8:	af 93       	push	r26
+ 1ca:	bf 93       	push	r27
+ 1cc:	ef 93       	push	r30
+ 1ce:	ff 93       	push	r31
+	
+	if (KEY_INT_M16() == 0)
+ 1d0:	0e 94 a4 00 	call	0x148	; 0x148 <_Z11KEY_INT_M16v>
+ 1d4:	89 2b       	or	r24, r25
+ 1d6:	51 f4       	brne	.+20     	; 0x1ec <__vector_1+0x3e>
+	{
+		if (statue == 0)
+ 1d8:	80 91 66 00 	lds	r24, 0x0066
+ 1dc:	81 11       	cpse	r24, r1
+ 1de:	04 c0       	rjmp	.+8      	; 0x1e8 <__vector_1+0x3a>
+		{ 
+			key_lock = 1;
+ 1e0:	81 e0       	ldi	r24, 0x01	; 1
+ 1e2:	80 93 64 00 	sts	0x0064, r24
+ 1e6:	02 c0       	rjmp	.+4      	; 0x1ec <__vector_1+0x3e>
+		}
+		else
+		{
+			key_lock = 0;
+ 1e8:	10 92 64 00 	sts	0x0064, r1
+		}
+	}
+}
+ 1ec:	ff 91       	pop	r31
+ 1ee:	ef 91       	pop	r30
+ 1f0:	bf 91       	pop	r27
+ 1f2:	af 91       	pop	r26
+ 1f4:	9f 91       	pop	r25
+ 1f6:	8f 91       	pop	r24
+ 1f8:	7f 91       	pop	r23
+ 1fa:	6f 91       	pop	r22
+ 1fc:	5f 91       	pop	r21
+ 1fe:	4f 91       	pop	r20
+ 200:	3f 91       	pop	r19
+ 202:	2f 91       	pop	r18
+ 204:	0f 90       	pop	r0
+ 206:	0f be       	out	0x3f, r0	; 63
+ 208:	0f 90       	pop	r0
+ 20a:	1f 90       	pop	r1
+ 20c:	18 95       	reti
+
+0000020e <main>:
+
+int main(void)
+{
+	
+	IR_sender_init();
+ 20e:	0e 94 79 00 	call	0xf2	; 0xf2 <_Z14IR_sender_initv>
+	OCR0 = 255;
+}
+
+void IR_sender_work()
+{
+	OCR0 = 149;
+ 212:	85 e9       	ldi	r24, 0x95	; 149
+ 214:	8c bf       	out	0x3c, r24	; 60
+	
+	IR_sender_work();
+	
+	TIMER1_NORMAL_PWM_MS_INIT();
+ 216:	0e 94 60 00 	call	0xc0	; 0xc0 <_Z25TIMER1_NORMAL_PWM_MS_INITv>
+	
+	TIMER1_NORMAL_PWM_MS_CLOSE();
+ 21a:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z26TIMER1_NORMAL_PWM_MS_CLOSEv>
+	
+	EXTERNAL_INTERRUPT0_INIT_M16();
+ 21e:	0e 94 93 00 	call	0x126	; 0x126 <_Z28EXTERNAL_INTERRUPT0_INIT_M16v>
+{
+	TCCR0 |= (1 << WGM00) | (1 << WGM01) | (1 << COM01) | (1 << COM00) | (1 << CS00);FN_IR = 1;
+}
+void IR_sender_close()
+{
+	TCCR0 = 0X00;
+ 222:	13 be       	out	0x33, r1	; 51
+	
+	IR_sender_close();
+	
+	sei();
+ 224:	78 94       	sei
+	
+}
+//********************TIMER1 NORMAL PWM 毫秒模式 737 256分频时间设定*********************//
+void TIMER1_NORMAL_PWM_737MS1_set(float ms_time)//****单位为毫秒
+{
+	TCNT1 = 65536 - 28.8*ms_time;
+ 226:	0f 2e       	mov	r0, r31
+ 228:	f3 ee       	ldi	r31, 0xE3	; 227
+ 22a:	af 2e       	mov	r10, r31
+ 22c:	bb 24       	eor	r11, r11
+ 22e:	ba 94       	dec	r11
+ 230:	f0 2d       	mov	r31, r0
+			{
+				delay_reduce(1);
+			}//wait timer1
+			time_lock = 0;
+			TIMER1_NORMAL_PWM_MS_CLOSE();
+			statue = 1;
+ 232:	44 24       	eor	r4, r4
+ 234:	43 94       	inc	r4
+ 236:	c0 e7       	ldi	r28, 0x70	; 112
+ 238:	df ef       	ldi	r29, 0xFF	; 255
+ 23a:	0f 2e       	mov	r0, r31
+ 23c:	f6 e6       	ldi	r31, 0x66	; 102
+ 23e:	cf 2e       	mov	r12, r31
+ 240:	fc ef       	ldi	r31, 0xFC	; 252
+ 242:	df 2e       	mov	r13, r31
+ 244:	f0 2d       	mov	r31, r0
+			{
+				delay_reduce(1);
+			}//wait timer1
+			time_lock = 0;
+			TIMER1_NORMAL_PWM_MS_CLOSE();
+			statue = 5;
+ 246:	0f 2e       	mov	r0, r31
+ 248:	f5 e0       	ldi	r31, 0x05	; 5
+ 24a:	5f 2e       	mov	r5, r31
+ 24c:	f0 2d       	mov	r31, r0
+ 24e:	0f 2e       	mov	r0, r31
+ 250:	f0 e3       	ldi	r31, 0x30	; 48
+ 252:	ef 2e       	mov	r14, r31
+ 254:	fd ef       	ldi	r31, 0xFD	; 253
+ 256:	ff 2e       	mov	r15, r31
+ 258:	f0 2d       	mov	r31, r0
+			{
+				delay_reduce(1);
+			}//wait timer1
+			time_lock = 0;
+			TIMER1_NORMAL_PWM_MS_CLOSE();
+			statue = 4;
+ 25a:	68 94       	set
+ 25c:	66 24       	eor	r6, r6
+ 25e:	62 f8       	bld	r6, 2
+ 260:	00 ee       	ldi	r16, 0xE0	; 224
+ 262:	1e ef       	ldi	r17, 0xFE	; 254
+			{
+				delay_reduce(1);
+			}//wait timer1
+			time_lock = 0;
+			TIMER1_NORMAL_PWM_MS_CLOSE();
+			statue = 3;
+ 264:	0f 2e       	mov	r0, r31
+ 266:	f3 e0       	ldi	r31, 0x03	; 3
+ 268:	7f 2e       	mov	r7, r31
+ 26a:	f0 2d       	mov	r31, r0
+			{
+				delay_reduce(1);
+			}//wait timer1
+			time_lock = 0;
+			TIMER1_NORMAL_PWM_MS_CLOSE();
+			statue = 2;
+ 26c:	68 94       	set
+ 26e:	88 24       	eor	r8, r8
+ 270:	81 f8       	bld	r8, 1
+			{
+				delay_reduce(1);
+			}
+			key_lock = 0;
+			EXTERNAL_INTERRUPT0_CLOSE_M16();
+			statue = 6;
+ 272:	0f 2e       	mov	r0, r31
+ 274:	f6 e0       	ldi	r31, 0x06	; 6
+ 276:	9f 2e       	mov	r9, r31
+ 278:	f0 2d       	mov	r31, r0
+	
+	/* Replace with your application code */
+	while (1)
+	{
+		
+		switch(statue)
+ 27a:	80 91 66 00 	lds	r24, 0x0066
+ 27e:	90 e0       	ldi	r25, 0x00	; 0
+ 280:	fc 01       	movw	r30, r24
+ 282:	87 30       	cpi	r24, 0x07	; 7
+ 284:	91 05       	cpc	r25, r1
+ 286:	e0 f7       	brcc	.-8      	; 0x280 <main+0x72>
+ 288:	e6 5d       	subi	r30, 0xD6	; 214
+ 28a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 28c:	0c 94 01 02 	jmp	0x402	; 0x402 <__tablejump2__>
+ 290:	13 be       	out	0x33, r1	; 51
+		{
+			case 0://wait key
+			
+			//IR_sender_zero();
+			IR_sender_close();
+			TIMER1_NORMAL_PWM_MS_CLOSE();
+ 292:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z26TIMER1_NORMAL_PWM_MS_CLOSEv>
+			EXTERNAL_INTERRUPT0_OPEN_M16();
+ 296:	0e 94 9c 00 	call	0x138	; 0x138 <_Z28EXTERNAL_INTERRUPT0_OPEN_M16v>
+			
+			while(key_lock == 0)
+ 29a:	80 91 64 00 	lds	r24, 0x0064
+ 29e:	81 11       	cpse	r24, r1
+ 2a0:	0a c0       	rjmp	.+20     	; 0x2b6 <main+0xa8>
+			{
+				delay_reduce(1);
+ 2a2:	61 e0       	ldi	r22, 0x01	; 1
+ 2a4:	70 e0       	ldi	r23, 0x00	; 0
+ 2a6:	80 e0       	ldi	r24, 0x00	; 0
+ 2a8:	90 e0       	ldi	r25, 0x00	; 0
+ 2aa:	0e 94 50 00 	call	0xa0	; 0xa0 <_Z12delay_reducel>
+			//IR_sender_zero();
+			IR_sender_close();
+			TIMER1_NORMAL_PWM_MS_CLOSE();
+			EXTERNAL_INTERRUPT0_OPEN_M16();
+			
+			while(key_lock == 0)
+ 2ae:	80 91 64 00 	lds	r24, 0x0064
+ 2b2:	88 23       	and	r24, r24
+ 2b4:	b1 f3       	breq	.-20     	; 0x2a2 <main+0x94>
+			{
+				delay_reduce(1);
+			}
+			key_lock = 0;
+ 2b6:	10 92 64 00 	sts	0x0064, r1
+			EXTERNAL_INTERRUPT0_CLOSE_M16();
+ 2ba:	0e 94 a0 00 	call	0x140	; 0x140 <_Z29EXTERNAL_INTERRUPT0_CLOSE_M16v>
+			statue = 6;
+ 2be:	90 92 66 00 	sts	0x0066, r9
+			
+			break;
+ 2c2:	db cf       	rjmp	.-74     	; 0x27a <main+0x6c>
+ 2c4:	dd bd       	out	0x2d, r29	; 45
+ 2c6:	cc bd       	out	0x2c, r28	; 44
+			
+			case 1://5ms send
+			//IR_sender_work();
+			TIMER1_NORMAL_PWM_737MS1_set(5);
+			IR_sender_open();
+ 2c8:	0e 94 89 00 	call	0x112	; 0x112 <_Z14IR_sender_openv>
+			TIMER1_NORMAL_PWM_MS_OPEN();
+ 2cc:	0e 94 6f 00 	call	0xde	; 0xde <_Z25TIMER1_NORMAL_PWM_MS_OPENv>
+			while(time_lock == 0)
+ 2d0:	80 91 65 00 	lds	r24, 0x0065
+ 2d4:	81 11       	cpse	r24, r1
+ 2d6:	0a c0       	rjmp	.+20     	; 0x2ec <main+0xde>
+			{
+				delay_reduce(1);
+ 2d8:	61 e0       	ldi	r22, 0x01	; 1
+ 2da:	70 e0       	ldi	r23, 0x00	; 0
+ 2dc:	80 e0       	ldi	r24, 0x00	; 0
+ 2de:	90 e0       	ldi	r25, 0x00	; 0
+ 2e0:	0e 94 50 00 	call	0xa0	; 0xa0 <_Z12delay_reducel>
+			case 1://5ms send
+			//IR_sender_work();
+			TIMER1_NORMAL_PWM_737MS1_set(5);
+			IR_sender_open();
+			TIMER1_NORMAL_PWM_MS_OPEN();
+			while(time_lock == 0)
+ 2e4:	80 91 65 00 	lds	r24, 0x0065
+ 2e8:	88 23       	and	r24, r24
+ 2ea:	b1 f3       	breq	.-20     	; 0x2d8 <main+0xca>
+			{
+				delay_reduce(1);
+			}//wait timer1
+			time_lock = 0;
+ 2ec:	10 92 65 00 	sts	0x0065, r1
+			TIMER1_NORMAL_PWM_MS_CLOSE();
+ 2f0:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z26TIMER1_NORMAL_PWM_MS_CLOSEv>
+			statue = 2;
+ 2f4:	80 92 66 00 	sts	0x0066, r8
+			break;
+ 2f8:	c0 cf       	rjmp	.-128    	; 0x27a <main+0x6c>
+ 2fa:	1d bd       	out	0x2d, r17	; 45
+ 2fc:	0c bd       	out	0x2c, r16	; 44
+ 2fe:	13 be       	out	0x33, r1	; 51
+			
+			case 2://10ms down
+			//IR_sender_zero();
+			TIMER1_NORMAL_PWM_737MS1_set(10);
+			IR_sender_close();
+			TIMER1_NORMAL_PWM_MS_OPEN();
+ 300:	0e 94 6f 00 	call	0xde	; 0xde <_Z25TIMER1_NORMAL_PWM_MS_OPENv>
+			while(time_lock == 0)
+ 304:	80 91 65 00 	lds	r24, 0x0065
+ 308:	81 11       	cpse	r24, r1
+ 30a:	0a c0       	rjmp	.+20     	; 0x320 <main+0x112>
+			{
+				delay_reduce(1);
+ 30c:	61 e0       	ldi	r22, 0x01	; 1
+ 30e:	70 e0       	ldi	r23, 0x00	; 0
+ 310:	80 e0       	ldi	r24, 0x00	; 0
+ 312:	90 e0       	ldi	r25, 0x00	; 0
+ 314:	0e 94 50 00 	call	0xa0	; 0xa0 <_Z12delay_reducel>
+			case 2://10ms down
+			//IR_sender_zero();
+			TIMER1_NORMAL_PWM_737MS1_set(10);
+			IR_sender_close();
+			TIMER1_NORMAL_PWM_MS_OPEN();
+			while(time_lock == 0)
+ 318:	80 91 65 00 	lds	r24, 0x0065
+ 31c:	88 23       	and	r24, r24
+ 31e:	b1 f3       	breq	.-20     	; 0x30c <main+0xfe>
+			{
+				delay_reduce(1);
+			}//wait timer1
+			time_lock = 0;
+ 320:	10 92 65 00 	sts	0x0065, r1
+			TIMER1_NORMAL_PWM_MS_CLOSE();
+ 324:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z26TIMER1_NORMAL_PWM_MS_CLOSEv>
+			statue = 3;
+ 328:	70 92 66 00 	sts	0x0066, r7
+			break;
+ 32c:	a6 cf       	rjmp	.-180    	; 0x27a <main+0x6c>
+ 32e:	fd bc       	out	0x2d, r15	; 45
+ 330:	ec bc       	out	0x2c, r14	; 44
+			
+			case 3://25ms send
+			//IR_sender_work();
+			TIMER1_NORMAL_PWM_737MS1_set(25);
+			IR_sender_open();
+ 332:	0e 94 89 00 	call	0x112	; 0x112 <_Z14IR_sender_openv>
+			TIMER1_NORMAL_PWM_MS_OPEN();
+ 336:	0e 94 6f 00 	call	0xde	; 0xde <_Z25TIMER1_NORMAL_PWM_MS_OPENv>
+			while(time_lock == 0)
+ 33a:	80 91 65 00 	lds	r24, 0x0065
+ 33e:	81 11       	cpse	r24, r1
+ 340:	0a c0       	rjmp	.+20     	; 0x356 <main+0x148>
+			{
+				delay_reduce(1);
+ 342:	61 e0       	ldi	r22, 0x01	; 1
+ 344:	70 e0       	ldi	r23, 0x00	; 0
+ 346:	80 e0       	ldi	r24, 0x00	; 0
+ 348:	90 e0       	ldi	r25, 0x00	; 0
+ 34a:	0e 94 50 00 	call	0xa0	; 0xa0 <_Z12delay_reducel>
+			case 3://25ms send
+			//IR_sender_work();
+			TIMER1_NORMAL_PWM_737MS1_set(25);
+			IR_sender_open();
+			TIMER1_NORMAL_PWM_MS_OPEN();
+			while(time_lock == 0)
+ 34e:	80 91 65 00 	lds	r24, 0x0065
+ 352:	88 23       	and	r24, r24
+ 354:	b1 f3       	breq	.-20     	; 0x342 <main+0x134>
+			{
+				delay_reduce(1);
+			}//wait timer1
+			time_lock = 0;
+ 356:	10 92 65 00 	sts	0x0065, r1
+			TIMER1_NORMAL_PWM_MS_CLOSE();
+ 35a:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z26TIMER1_NORMAL_PWM_MS_CLOSEv>
+			statue = 4;
+ 35e:	60 92 66 00 	sts	0x0066, r6
+			break;
+ 362:	8b cf       	rjmp	.-234    	; 0x27a <main+0x6c>
+ 364:	dd bc       	out	0x2d, r13	; 45
+ 366:	cc bc       	out	0x2c, r12	; 44
+ 368:	13 be       	out	0x33, r1	; 51
+			
+			case 4://32ms down
+			//IR_sender_zero();
+			TIMER1_NORMAL_PWM_737MS1_set(32);
+			IR_sender_close();
+			TIMER1_NORMAL_PWM_MS_OPEN();
+ 36a:	0e 94 6f 00 	call	0xde	; 0xde <_Z25TIMER1_NORMAL_PWM_MS_OPENv>
+			while(time_lock == 0)
+ 36e:	80 91 65 00 	lds	r24, 0x0065
+ 372:	81 11       	cpse	r24, r1
+ 374:	0a c0       	rjmp	.+20     	; 0x38a <main+0x17c>
+			{
+				delay_reduce(1);
+ 376:	61 e0       	ldi	r22, 0x01	; 1
+ 378:	70 e0       	ldi	r23, 0x00	; 0
+ 37a:	80 e0       	ldi	r24, 0x00	; 0
+ 37c:	90 e0       	ldi	r25, 0x00	; 0
+ 37e:	0e 94 50 00 	call	0xa0	; 0xa0 <_Z12delay_reducel>
+			case 4://32ms down
+			//IR_sender_zero();
+			TIMER1_NORMAL_PWM_737MS1_set(32);
+			IR_sender_close();
+			TIMER1_NORMAL_PWM_MS_OPEN();
+			while(time_lock == 0)
+ 382:	80 91 65 00 	lds	r24, 0x0065
+ 386:	88 23       	and	r24, r24
+ 388:	b1 f3       	breq	.-20     	; 0x376 <main+0x168>
+			{
+				delay_reduce(1);
+			}//wait timer1
+			time_lock = 0;
+ 38a:	10 92 65 00 	sts	0x0065, r1
+			TIMER1_NORMAL_PWM_MS_CLOSE();
+ 38e:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z26TIMER1_NORMAL_PWM_MS_CLOSEv>
+			statue = 5;
+ 392:	50 92 66 00 	sts	0x0066, r5
+			break;
+ 396:	71 cf       	rjmp	.-286    	; 0x27a <main+0x6c>
+ 398:	dd bd       	out	0x2d, r29	; 45
+ 39a:	cc bd       	out	0x2c, r28	; 44
+			
+			case 5://5ms send
+			//IR_sender_work();
+			TIMER1_NORMAL_PWM_737MS1_set(5);
+			IR_sender_open();
+ 39c:	0e 94 89 00 	call	0x112	; 0x112 <_Z14IR_sender_openv>
+			TIMER1_NORMAL_PWM_MS_OPEN();
+ 3a0:	0e 94 6f 00 	call	0xde	; 0xde <_Z25TIMER1_NORMAL_PWM_MS_OPENv>
+			while(time_lock == 0)
+ 3a4:	80 91 65 00 	lds	r24, 0x0065
+ 3a8:	81 11       	cpse	r24, r1
+ 3aa:	0a c0       	rjmp	.+20     	; 0x3c0 <main+0x1b2>
+			{
+				delay_reduce(1);
+ 3ac:	61 e0       	ldi	r22, 0x01	; 1
+ 3ae:	70 e0       	ldi	r23, 0x00	; 0
+ 3b0:	80 e0       	ldi	r24, 0x00	; 0
+ 3b2:	90 e0       	ldi	r25, 0x00	; 0
+ 3b4:	0e 94 50 00 	call	0xa0	; 0xa0 <_Z12delay_reducel>
+			case 5://5ms send
+			//IR_sender_work();
+			TIMER1_NORMAL_PWM_737MS1_set(5);
+			IR_sender_open();
+			TIMER1_NORMAL_PWM_MS_OPEN();
+			while(time_lock == 0)
+ 3b8:	80 91 65 00 	lds	r24, 0x0065
+ 3bc:	88 23       	and	r24, r24
+ 3be:	b1 f3       	breq	.-20     	; 0x3ac <main+0x19e>
+			{
+				delay_reduce(1);
+			}//wait timer1
+			time_lock = 0;
+ 3c0:	10 92 65 00 	sts	0x0065, r1
+			TIMER1_NORMAL_PWM_MS_CLOSE();
+ 3c4:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z26TIMER1_NORMAL_PWM_MS_CLOSEv>
+			statue = 0;
+ 3c8:	10 92 66 00 	sts	0x0066, r1
+			break;
+ 3cc:	56 cf       	rjmp	.-340    	; 0x27a <main+0x6c>
+ 3ce:	bd bc       	out	0x2d, r11	; 45
+ 3d0:	ac bc       	out	0x2c, r10	; 44
+ 3d2:	13 be       	out	0x33, r1	; 51
+			
+			case 6://avoid first error
+			//IR_sender_zero();
+			TIMER1_NORMAL_PWM_737MS1_set(1);
+			IR_sender_close();
+			TIMER1_NORMAL_PWM_MS_OPEN();
+ 3d4:	0e 94 6f 00 	call	0xde	; 0xde <_Z25TIMER1_NORMAL_PWM_MS_OPENv>
+			while(time_lock == 0)
+ 3d8:	80 91 65 00 	lds	r24, 0x0065
+ 3dc:	81 11       	cpse	r24, r1
+ 3de:	0a c0       	rjmp	.+20     	; 0x3f4 <main+0x1e6>
+			{
+				delay_reduce(1);
+ 3e0:	61 e0       	ldi	r22, 0x01	; 1
+ 3e2:	70 e0       	ldi	r23, 0x00	; 0
+ 3e4:	80 e0       	ldi	r24, 0x00	; 0
+ 3e6:	90 e0       	ldi	r25, 0x00	; 0
+ 3e8:	0e 94 50 00 	call	0xa0	; 0xa0 <_Z12delay_reducel>
+			case 6://avoid first error
+			//IR_sender_zero();
+			TIMER1_NORMAL_PWM_737MS1_set(1);
+			IR_sender_close();
+			TIMER1_NORMAL_PWM_MS_OPEN();
+			while(time_lock == 0)
+ 3ec:	80 91 65 00 	lds	r24, 0x0065
+ 3f0:	88 23       	and	r24, r24
+ 3f2:	b1 f3       	breq	.-20     	; 0x3e0 <main+0x1d2>
+			{
+				delay_reduce(1);
+			}//wait timer1
+			time_lock = 0;
+ 3f4:	10 92 65 00 	sts	0x0065, r1
+			TIMER1_NORMAL_PWM_MS_CLOSE();
+ 3f8:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z26TIMER1_NORMAL_PWM_MS_CLOSEv>
+			statue = 1;
+ 3fc:	40 92 66 00 	sts	0x0066, r4
+			break;
+ 400:	3c cf       	rjmp	.-392    	; 0x27a <main+0x6c>
+
+00000402 <__tablejump2__>:
+ 402:	ee 0f       	add	r30, r30
+ 404:	ff 1f       	adc	r31, r31
+ 406:	05 90       	lpm	r0, Z+
+ 408:	f4 91       	lpm	r31, Z
+ 40a:	e0 2d       	mov	r30, r0
+ 40c:	09 94       	ijmp
+
+0000040e <_exit>:
+ 40e:	f8 94       	cli
+
+00000410 <__stop_program>:
+ 410:	ff cf       	rjmp	.-2      	; 0x410 <__stop_program>
