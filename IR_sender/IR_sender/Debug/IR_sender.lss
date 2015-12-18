@@ -224,7 +224,7 @@ void IR_sender_init()
 
 00000112 <_Z14IR_sender_openv>:
 {
-	OCR0 = 149;
+	OCR0 = 193;
 }
 void IR_sender_open()
 {
@@ -457,8 +457,8 @@ int main(void)
 
 void IR_sender_work()
 {
-	OCR0 = 149;
- 212:	85 e9       	ldi	r24, 0x95	; 149
+	OCR0 = 193;
+ 212:	81 ec       	ldi	r24, 0xC1	; 193
  214:	8c bf       	out	0x3c, r24	; 60
 	
 	IR_sender_work();
