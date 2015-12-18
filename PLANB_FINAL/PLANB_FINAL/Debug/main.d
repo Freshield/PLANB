@@ -12,7 +12,8 @@ main.d main.o: .././main.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  D:\MEGA\EDEN\avr\system\lib_delay.h D:\MEGA\EDEN\avr\device\lib_led.h \
- D:\MEGA\EDEN\avr\function\lib_usart_m16.h
+ D:\MEGA\EDEN\avr\function\lib_usart_m16.h \
+ D:\MEGA\EDEN\avr\device\lib_IR_m16.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -43,3 +44,5 @@ D:\MEGA\EDEN\avr\system\lib_delay.h:
 D:\MEGA\EDEN\avr\device\lib_led.h:
 
 D:\MEGA\EDEN\avr\function\lib_usart_m16.h:
+
+D:\MEGA\EDEN\avr\device\lib_IR_m16.h:
