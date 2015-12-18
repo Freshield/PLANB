@@ -87,7 +87,7 @@ int main(void)
 			}
 			key_lock = 0;
 			EXTERNAL_INTERRUPT0_CLOSE_M16();
-			statue = 6;
+			statue = 1;
 			
 			break;
 			
