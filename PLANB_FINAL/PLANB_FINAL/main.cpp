@@ -11,6 +11,7 @@
 #include <D:\MEGA\EDEN\avr\device\lib_led.h>
 #include <D:\MEGA\EDEN\avr\function\lib_usart_m16.h>
 #include <D:\MEGA\EDEN\avr\device\lib_IR_m16.h>
+#include <D:\MEGA\EDEN\avr\system\lib_basic.h>
 
 uchar flow = 0;
 
@@ -20,7 +21,7 @@ uchar time = 0;
 uchar lister = 0;
 unsigned int old_num = 0;
 unsigned int new_num,change_num;
-char buffer[10];
+char buffer[30];
 uchar count = 0;
 
 
@@ -71,103 +72,22 @@ int main(void)
 		     count ++;
 		     
 	     }
-	     if (lister >= 6)
+	     if (lister >= 12)
 	     {
-			 
-		     
+			 buffer[count] = '\0';
+		     for (int i = 1;buffer[i] != '\0';i++ )
+		     {
+				 delay_second(25);
+				 LED_PORT = buffer[i];
+				 BASIC_HexToDciAsWord(buffer[i]);
+				 M16_USART_SEND_ALONE(BASIC_hun);
+				 M16_USART_SEND_ALONE(BASIC_ten);
+				 M16_USART_SEND_ALONE(BASIC_poi);
+				 M16_USART_SEND_ALONE('\r');
+				 M16_USART_SEND_ALONE('\n');
 				 
-		     delay_second(25);
-		     LED_PORT = buffer[1]; 
-			  char hun = buffer[1]/100;
-		     hun = hun + '0';
-		      char ten = buffer[1]%100/10;
-		     ten = ten + '0';
-		     char poi = buffer[1]%10;
-		     poi = poi + '0';
-		     M16_USART_SEND_ALONE(hun); 
-		     M16_USART_SEND_ALONE(ten);
-		     M16_USART_SEND_ALONE(poi);
-		     M16_USART_SEND_ALONE('\r');
-		     M16_USART_SEND_ALONE('\n');
-		     delay_second(25);
-		     LED_PORT = buffer[2];
-			   hun = buffer[2]/100;
-			  hun = hun + '0';
-			   ten = buffer[2]%100/10;
-			  ten = ten + '0';
-			   poi = buffer[2]%10;
-			  poi = poi + '0';
-			  M16_USART_SEND_ALONE(hun);
-			  M16_USART_SEND_ALONE(ten);
-			  M16_USART_SEND_ALONE(poi);
-			  M16_USART_SEND_ALONE('\r');
-			  M16_USART_SEND_ALONE('\n');
-		     delay_second(25);
-		     LED_PORT = buffer[3];
-		     hun = buffer[3]/100;
-		     hun = hun + '0';
-		     ten = buffer[3]%100/10;
-		     ten = ten + '0';
-		     poi = buffer[3]%10;
-		     poi = poi + '0';
-		     M16_USART_SEND_ALONE(hun);
-		     M16_USART_SEND_ALONE(ten);
-		     M16_USART_SEND_ALONE(poi);
-		     M16_USART_SEND_ALONE('\r');
-		     M16_USART_SEND_ALONE('\n');
-		     delay_second(25);
-		     LED_PORT = buffer[4];
-			 hun = buffer[4]/100;
-			 hun = hun + '0';
-			 ten = buffer[4]%100/10;
-			 ten = ten + '0';
-			 poi = buffer[4]%10;
-			 poi = poi + '0';
-			 M16_USART_SEND_ALONE(hun);
-			 M16_USART_SEND_ALONE(ten);
-			 M16_USART_SEND_ALONE(poi);
-			 M16_USART_SEND_ALONE('\r');
-			 M16_USART_SEND_ALONE('\n');
-		     delay_second(25);
-		     LED_PORT = buffer[5];
-			 hun = buffer[5]/100;
-			 hun = hun + '0';
-			 ten = buffer[5]%100/10;
-			 ten = ten + '0';
-			 poi = buffer[5]%10;
-			 poi = poi + '0';
-			 M16_USART_SEND_ALONE(hun);
-			 M16_USART_SEND_ALONE(ten);
-			 M16_USART_SEND_ALONE(poi);
-			 M16_USART_SEND_ALONE('\r');
-			 M16_USART_SEND_ALONE('\n');
-		     delay_second(25);
-		     LED_PORT = buffer[6];
-			 hun = buffer[6]/100;
-			 hun = hun + '0';
-			 ten = buffer[6]%100/10;
-			 ten = ten + '0';
-			 poi = buffer[6]%10;
-			 poi = poi + '0';
-			 M16_USART_SEND_ALONE(hun);
-			 M16_USART_SEND_ALONE(ten);
-			 M16_USART_SEND_ALONE(poi);
-			 M16_USART_SEND_ALONE('\r');
-			 M16_USART_SEND_ALONE('\n');
-		     delay_second(25);
-		     LED_PORT = buffer[7];
-			 hun = buffer[7]/100;
-			 hun = hun + '0';
-			 ten = buffer[7]%100/10;
-			 ten = ten + '0';
-			 poi = buffer[7]%10;
-			 poi = poi + '0';
-			 M16_USART_SEND_ALONE(hun);
-			 M16_USART_SEND_ALONE(ten);
-			 M16_USART_SEND_ALONE(poi);
-			 M16_USART_SEND_ALONE('\r');
-			 M16_USART_SEND_ALONE('\n');
-		     
+		     }
+				 
 	     }
 	}
 }
