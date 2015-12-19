@@ -36,8 +36,6 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodsi4.o) (__negsi2)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega16/avr5/crtatmega16.o (exit)
-c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
-                              IR_sender.o (__tablejump2__)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_copy_data.o)
                               IR_sender.o (__do_copy_data)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_clear_bss.o)
@@ -74,10 +72,14 @@ Discarded input sections
                 0x00000000       0x1e IR_sender.o
  .text._Z21TIMER1_NORMAL_PWM_setf
                 0x00000000       0x62 IR_sender.o
- .text._Z24TIMER1_NORMAL_PWM_MS_setf
-                0x00000000       0x66 IR_sender.o
- .text._Z28TIMER1_NORMAL_PWM_737MS1_setf
-                0x00000000       0x26 IR_sender.o
+ .text._Z27TIMER1_CTC_PWM_MS_calculatef
+                0x00000000       0x6a IR_sender.o
+ .text._Z21TIMER1_CTC_PWM_MS_setf
+                0x00000000       0x62 IR_sender.o
+ .text._Z25TIMER1_CTC_PWM_737MS1_setf
+                0x00000000       0x22 IR_sender.o
+ .text._Z31TIMER1_CTC_PWM_737MS1_calculatef
+                0x00000000       0x2a IR_sender.o
  .text._Z21TIMER1_CTC_OCR1A_INITv
                 0x00000000       0x28 IR_sender.o
  .text._Z20TIMER1_CTC_OCR1A_setf
@@ -122,10 +124,13 @@ Discarded input sections
                 0x00000000       0x3c IR_sender.o
  .text._Z17KEYBOARD_MOVE_LEDv
                 0x00000000       0x22 IR_sender.o
+ .data.timelist
+                0x00000000       0x18 IR_sender.o
  .bss.RECENT_KEY
                 0x00000000        0x1 IR_sender.o
  .bss.MOVE_LED_DIRECTION
                 0x00000000        0x1 IR_sender.o
+ .bss.helper    0x00000000        0x4 IR_sender.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(addsf3.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(addsf3.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(addsf3.o)
@@ -249,21 +254,6 @@ Discarded input sections
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  .text.libgcc.fixed
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
- .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
- .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
- .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
- .text.libgcc.mul
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
- .text.libgcc.div
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
- .text.libgcc.prologue
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
- .text.libgcc.builtins
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
- .text.libgcc.fmul
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
- .text.libgcc.fixed
-                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_copy_data.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_copy_data.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_copy_data.o)
@@ -431,51 +421,49 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x42c
+.text           0x00000000      0x312
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega16/avr5/crtatmega16.o
                 0x00000000                __vector_default
                 0x00000000                __vectors
  *(.vectors)
  *(.progmem.gcc*)
- .progmem.gcc_sw_table.main
-                0x00000054        0xe IR_sender.o
-                0x00000062                . = ALIGN (0x2)
-                0x00000062                __trampolines_start = .
+                0x00000054                . = ALIGN (0x2)
+                0x00000054                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x00000062        0x0 linker stubs
+ .trampolines   0x00000054        0x0 linker stubs
  *(.trampolines*)
-                0x00000062                __trampolines_end = .
+                0x00000054                __trampolines_end = .
  *(.progmem*)
-                0x00000062                . = ALIGN (0x2)
+                0x00000054                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x00000062                __ctors_start = .
+                0x00000054                __ctors_start = .
  *(.ctors)
-                0x00000062                __ctors_end = .
-                0x00000062                __dtors_start = .
+                0x00000054                __ctors_end = .
+                0x00000054                __dtors_start = .
  *(.dtors)
-                0x00000062                __dtors_end = .
+                0x00000054                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00000062        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega16/avr5/crtatmega16.o
-                0x00000062                __init
+ .init0         0x00000054        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega16/avr5/crtatmega16.o
+                0x00000054                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00000062        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega16/avr5/crtatmega16.o
+ .init2         0x00000054        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega16/avr5/crtatmega16.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x0000006e       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_copy_data.o)
-                0x0000006e                __do_copy_data
- .init4         0x00000084       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_clear_bss.o)
-                0x00000084                __do_clear_bss
+ .init4         0x00000060       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_copy_data.o)
+                0x00000060                __do_copy_data
+ .init4         0x00000076       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_clear_bss.o)
+                0x00000076                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -486,81 +474,79 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000094        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega16/avr5/crtatmega16.o
+ .init9         0x00000086        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega16/avr5/crtatmega16.o
  *(.init9)
  *(.text)
- .text          0x0000009c        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega16/avr5/crtatmega16.o
-                0x0000009c                __vector_12
-                0x0000009c                __bad_interrupt
-                0x0000009c                __vector_6
-                0x0000009c                __vector_3
-                0x0000009c                __vector_11
-                0x0000009c                __vector_13
-                0x0000009c                __vector_17
-                0x0000009c                __vector_19
-                0x0000009c                __vector_7
-                0x0000009c                __vector_5
-                0x0000009c                __vector_4
-                0x0000009c                __vector_2
-                0x0000009c                __vector_15
-                0x0000009c                __vector_14
-                0x0000009c                __vector_10
-                0x0000009c                __vector_16
-                0x0000009c                __vector_18
-                0x0000009c                __vector_20
-                0x000000a0                . = ALIGN (0x2)
+ .text          0x0000008e        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega16/avr5/crtatmega16.o
+                0x0000008e                __vector_12
+                0x0000008e                __bad_interrupt
+                0x0000008e                __vector_3
+                0x0000008e                __vector_11
+                0x0000008e                __vector_13
+                0x0000008e                __vector_17
+                0x0000008e                __vector_19
+                0x0000008e                __vector_7
+                0x0000008e                __vector_5
+                0x0000008e                __vector_4
+                0x0000008e                __vector_2
+                0x0000008e                __vector_15
+                0x0000008e                __vector_8
+                0x0000008e                __vector_14
+                0x0000008e                __vector_10
+                0x0000008e                __vector_16
+                0x0000008e                __vector_18
+                0x0000008e                __vector_20
+                0x00000092                . = ALIGN (0x2)
  *(.text.*)
  .text._Z12delay_reducel
-                0x000000a0       0x20 IR_sender.o
-                0x000000a0                _Z12delay_reducel
- .text._Z25TIMER1_NORMAL_PWM_MS_INITv
-                0x000000c0       0x1e IR_sender.o
-                0x000000c0                _Z25TIMER1_NORMAL_PWM_MS_INITv
- .text._Z25TIMER1_NORMAL_PWM_MS_OPENv
-                0x000000de        0x8 IR_sender.o
-                0x000000de                _Z25TIMER1_NORMAL_PWM_MS_OPENv
- .text._Z26TIMER1_NORMAL_PWM_MS_CLOSEv
-                0x000000e6        0xc IR_sender.o
-                0x000000e6                _Z26TIMER1_NORMAL_PWM_MS_CLOSEv
+                0x00000092       0x20 IR_sender.o
+                0x00000092                _Z12delay_reducel
+ .text._Z22TIMER1_CTC_PWM_MS_INITv
+                0x000000b2       0x1e IR_sender.o
+                0x000000b2                _Z22TIMER1_CTC_PWM_MS_INITv
+ .text._Z22TIMER1_CTC_PWM_MS_OPENv
+                0x000000d0        0xc IR_sender.o
+                0x000000d0                _Z22TIMER1_CTC_PWM_MS_OPENv
+ .text._Z23TIMER1_CTC_PWM_MS_CLOSEv
+                0x000000dc        0xc IR_sender.o
+                0x000000dc                _Z23TIMER1_CTC_PWM_MS_CLOSEv
  .text._Z14IR_sender_initv
-                0x000000f2       0x24 IR_sender.o
-                0x000000f2                _Z14IR_sender_initv
+                0x000000e8       0x24 IR_sender.o
+                0x000000e8                _Z14IR_sender_initv
  .text._Z14IR_sender_openv
-                0x00000116       0x1a IR_sender.o
-                0x00000116                _Z14IR_sender_openv
+                0x0000010c        0xa IR_sender.o
+                0x0000010c                _Z14IR_sender_openv
  .text._Z15IR_sender_closev
-                0x00000130       0x16 IR_sender.o
-                0x00000130                _Z15IR_sender_closev
+                0x00000116        0xa IR_sender.o
+                0x00000116                _Z15IR_sender_closev
  .text._Z28EXTERNAL_INTERRUPT0_INIT_M16v
-                0x00000146       0x12 IR_sender.o
-                0x00000146                _Z28EXTERNAL_INTERRUPT0_INIT_M16v
+                0x00000120       0x12 IR_sender.o
+                0x00000120                _Z28EXTERNAL_INTERRUPT0_INIT_M16v
  .text._Z28EXTERNAL_INTERRUPT0_OPEN_M16v
-                0x00000158        0x8 IR_sender.o
-                0x00000158                _Z28EXTERNAL_INTERRUPT0_OPEN_M16v
+                0x00000132        0x8 IR_sender.o
+                0x00000132                _Z28EXTERNAL_INTERRUPT0_OPEN_M16v
  .text._Z29EXTERNAL_INTERRUPT0_CLOSE_M16v
-                0x00000160        0x8 IR_sender.o
-                0x00000160                _Z29EXTERNAL_INTERRUPT0_CLOSE_M16v
+                0x0000013a        0x8 IR_sender.o
+                0x0000013a                _Z29EXTERNAL_INTERRUPT0_CLOSE_M16v
  .text._Z11KEY_INT_M16v
-                0x00000168       0x18 IR_sender.o
-                0x00000168                _Z11KEY_INT_M16v
+                0x00000142       0x18 IR_sender.o
+                0x00000142                _Z11KEY_INT_M16v
  .text.__vector_9
-                0x00000180       0x14 IR_sender.o
-                0x00000180                __vector_9
- .text.__vector_8
-                0x00000194       0x4e IR_sender.o
-                0x00000194                __vector_8
+                0x0000015a       0x14 IR_sender.o
+                0x0000015a                __vector_9
+ .text.__vector_6
+                0x0000016e       0x4e IR_sender.o
+                0x0000016e                __vector_6
  .text.__vector_1
-                0x000001e2       0x60 IR_sender.o
-                0x000001e2                __vector_1
- .text.main     0x00000242      0x1da IR_sender.o
-                0x00000242                main
- .text.libgcc   0x0000041c        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
-                0x0000041c                __tablejump2__
-                0x00000428                . = ALIGN (0x2)
+                0x000001bc       0x60 IR_sender.o
+                0x000001bc                __vector_1
+ .text.main     0x0000021c       0xf2 IR_sender.o
+                0x0000021c                main
+                0x0000030e                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000428        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x00000428                _exit
-                0x00000428                exit
+ .fini9         0x0000030e        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x0000030e                _exit
+                0x0000030e                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -579,11 +565,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000428        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000030e        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000042c                _etext = .
+                0x00000312                _etext = .
 
-.data           0x00800060        0x4 load address 0x0000042c
+.data           0x00800060        0x4 load address 0x00000312
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -612,8 +598,8 @@ END GROUP
                 0x00800066                statue
  *(COMMON)
                 0x00800067                PROVIDE (__bss_end, .)
-                0x0000042c                __data_load_start = LOADADDR (.data)
-                0x00000430                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000312                __data_load_start = LOADADDR (.data)
+                0x00000316                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800067        0x0
                 0x00800067                PROVIDE (__noinit_start, .)
@@ -684,38 +670,38 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x1a8
+.debug_aranges  0x00000000      0x1b8
  *(.debug_aranges)
  .debug_aranges
-                0x00000000      0x1a8 IR_sender.o
+                0x00000000      0x1b8 IR_sender.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0xb2c
+.debug_info     0x00000000      0xa88
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0xb2c IR_sender.o
+ .debug_info    0x00000000      0xa88 IR_sender.o
 
-.debug_abbrev   0x00000000      0x2b9
+.debug_abbrev   0x00000000      0x264
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x2b9 IR_sender.o
+ .debug_abbrev  0x00000000      0x264 IR_sender.o
 
-.debug_line     0x00000000      0x5de
+.debug_line     0x00000000      0x586
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x5de IR_sender.o
+ .debug_line    0x00000000      0x586 IR_sender.o
 
-.debug_frame    0x00000000      0x4a8
+.debug_frame    0x00000000      0x4dc
  *(.debug_frame)
- .debug_frame   0x00000000      0x4a8 IR_sender.o
+ .debug_frame   0x00000000      0x4dc IR_sender.o
 
-.debug_str      0x00000000      0xb20
+.debug_str      0x00000000      0xb9d
  *(.debug_str)
- .debug_str     0x00000000      0xb20 IR_sender.o
-                                0xb5d (size before relaxing)
+ .debug_str     0x00000000      0xb9d IR_sender.o
+                                0xbda (size before relaxing)
 
-.debug_loc      0x00000000      0x8ed
+.debug_loc      0x00000000      0x91a
  *(.debug_loc)
- .debug_loc     0x00000000      0x8ed IR_sender.o
+ .debug_loc     0x00000000      0x91a IR_sender.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -735,9 +721,9 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x210
+.debug_ranges   0x00000000      0x1a8
  *(.debug_ranges)
- .debug_ranges  0x00000000      0x210 IR_sender.o
+ .debug_ranges  0x00000000      0x1a8 IR_sender.o
 
 .debug_macro
  *(.debug_macro)
