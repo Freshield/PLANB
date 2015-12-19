@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "IR_sender", "IR_sender\IR_sender.cppproj", "{AB34A195-7D6C-41A0-8407-241B625C00A6}"
 EndProject
 Global
@@ -11,6 +13,7 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{AB34A195-7D6C-41A0-8407-241B625C00A6}.Debug|AVR.ActiveCfg = Debug|AVR
 		{AB34A195-7D6C-41A0-8407-241B625C00A6}.Debug|AVR.Build.0 = Debug|AVR
+		{AB34A195-7D6C-41A0-8407-241B625C00A6}.Debug|AVR.Deploy.0 = Debug|AVR
 		{AB34A195-7D6C-41A0-8407-241B625C00A6}.Release|AVR.ActiveCfg = Release|AVR
 		{AB34A195-7D6C-41A0-8407-241B625C00A6}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
