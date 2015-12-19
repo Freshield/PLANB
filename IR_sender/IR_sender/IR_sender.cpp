@@ -3,7 +3,7 @@
  *
  * Created: 2015/10/2 15:30:41
  *  Author: FRESHIELD
- */ 
+ */  
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -14,24 +14,18 @@
 #include <D:\MEGA\EDEN\avr\device\lib_keyboard.h>
 
 uchar statue = 0;
-uchar time_lock = 0;
+uchar time_lock = 0; 
 uchar key_lock = 0;
 
-ISR(TIMER0_COMP_vect)
-{
-	
-}
-
+ 
 ISR(TIMER0_OVF_vect)
 {
-	
-	IR_sender_service();
-	
 	
 }
 
 ISR(TIMER1_OVF_vect)
 {
+	TIMER1_NORMAL_PWM_MS_CLOSE();
 	time_lock = 1;
 }
 
@@ -54,9 +48,7 @@ ISR(INT0_vect)
 int main(void)
 {
 	
-	IR_sender_init();
-	
-	IR_sender_work();
+	IR_sender_init(); 
 	
 	TIMER1_NORMAL_PWM_MS_INIT();
 	
@@ -101,7 +93,6 @@ int main(void)
 				delay_reduce(1);
 			}//wait timer1
 			time_lock = 0;
-			TIMER1_NORMAL_PWM_MS_CLOSE();
 			statue = 2;
 			break;
 			
@@ -114,8 +105,7 @@ int main(void)
 			{
 				delay_reduce(1);
 			}//wait timer1
-			time_lock = 0;
-			TIMER1_NORMAL_PWM_MS_CLOSE();
+			time_lock = 0; 
 			statue = 3;
 			break;
 			
@@ -129,7 +119,6 @@ int main(void)
 				delay_reduce(1);
 			}//wait timer1
 			time_lock = 0;
-			TIMER1_NORMAL_PWM_MS_CLOSE();
 			statue = 4;
 			break;
 			
@@ -143,7 +132,6 @@ int main(void)
 				delay_reduce(1);
 			}//wait timer1
 			time_lock = 0;
-			TIMER1_NORMAL_PWM_MS_CLOSE();
 			statue = 5;
 			break;
 			
@@ -157,7 +145,6 @@ int main(void)
 				delay_reduce(1);
 			}//wait timer1
 			time_lock = 0;
-			TIMER1_NORMAL_PWM_MS_CLOSE();
 			statue = 0;
 			break;
 			
@@ -171,7 +158,6 @@ int main(void)
 				delay_reduce(1);
 			}//wait timer1
 			time_lock = 0;
-			TIMER1_NORMAL_PWM_MS_CLOSE();
 			statue = 1;
 			break;
 		}
