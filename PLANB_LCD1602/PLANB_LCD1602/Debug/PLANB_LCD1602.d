@@ -10,8 +10,8 @@ PLANB_LCD1602.d PLANB_LCD1602.o: .././PLANB_LCD1602.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\system\lib_delay.h \
- C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\device\lib_lcd1602_m16.h
+ D:\MEGA\EDEN\avr\system\lib_delay.h \
+ D:\MEGA\EDEN\avr\device\lib_lcd1602_m16.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -35,6 +35,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\system\lib_delay.h:
+D:\MEGA\EDEN\avr\system\lib_delay.h:
 
-C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\device\lib_lcd1602_m16.h:
+D:\MEGA\EDEN\avr\device\lib_lcd1602_m16.h:

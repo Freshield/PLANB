@@ -6,8 +6,8 @@
  */ 
 
 #include <avr/io.h>
-#include <C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\system\lib_delay.h>
-#include <C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\device\lib_lcd1602_m16.h>
+#include <D:\MEGA\EDEN\avr\system\lib_delay.h>
+#include <D:\MEGA\EDEN\avr\device\lib_lcd1602_m16.h>
 
 int main(void)
 {

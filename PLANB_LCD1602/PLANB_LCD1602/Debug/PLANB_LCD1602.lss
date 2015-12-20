@@ -17,15 +17,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   6 .debug_abbrev 0000011a  00000000  00000000  00000957  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   0000023b  00000000  00000000  00000a71  2**0
+  7 .debug_line   000001ff  00000000  00000000  00000a71  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000130  00000000  00000000  00000cac  2**2
+  8 .debug_frame  00000130  00000000  00000000  00000c70  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000032a  00000000  00000000  00000ddc  2**0
+  9 .debug_str    0000030e  00000000  00000000  00000da0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000555  00000000  00000000  00001106  2**0
+ 10 .debug_loc    00000555  00000000  00000000  000010ae  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000068  00000000  00000000  0000165b  2**0
+ 11 .debug_ranges 00000068  00000000  00000000  00001603  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -354,8 +354,8 @@ void LCD_SAMPLE_SHOW_STRING(uchar x,uchar y,char *str)
 
 000001c4 <main>:
 #include <avr/io.h>
-#include <C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\system\lib_delay.h>
-#include <C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\device\lib_lcd1602_m16.h>
+#include <D:\MEGA\EDEN\avr\system\lib_delay.h>
+#include <D:\MEGA\EDEN\avr\device\lib_lcd1602_m16.h>
 
 int main(void)
 {

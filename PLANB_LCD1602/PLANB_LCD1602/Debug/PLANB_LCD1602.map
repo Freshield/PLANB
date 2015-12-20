@@ -405,18 +405,18 @@ END GROUP
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x11a PLANB_LCD1602.o
 
-.debug_line     0x00000000      0x23b
+.debug_line     0x00000000      0x1ff
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x23b PLANB_LCD1602.o
+ .debug_line    0x00000000      0x1ff PLANB_LCD1602.o
 
 .debug_frame    0x00000000      0x130
  *(.debug_frame)
  .debug_frame   0x00000000      0x130 PLANB_LCD1602.o
 
-.debug_str      0x00000000      0x32a
+.debug_str      0x00000000      0x30e
  *(.debug_str)
- .debug_str     0x00000000      0x32a PLANB_LCD1602.o
-                                0x363 (size before relaxing)
+ .debug_str     0x00000000      0x30e PLANB_LCD1602.o
+                                0x347 (size before relaxing)
 
 .debug_loc      0x00000000      0x555
  *(.debug_loc)
