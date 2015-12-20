@@ -7,8 +7,8 @@
    
   
 #include <avr/io.h>  
-#include <C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\system\lib_delay.h>
-#include <C:\Users\FRESHIELD\Documents\MEGAsync\EDEN\avr\device\lib_led.h>
+#include <D:\MEGA\EDEN\avr\system\lib_delay.h>
+#include <D:\MEGA\EDEN\avr\device\lib_led.h>
    
     
 int main(void)     
@@ -20,6 +20,8 @@ int main(void)
     while(1)
     {
 		delay_second(5);
+		
+		LED_PORT ++;
       // LED_LEFT_CIRCLE(); 
     }
 }
