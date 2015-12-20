@@ -23,7 +23,7 @@ uchar key_lock = 0;
 int timelist[6] = {490,530,1024,2048,2333,512};
 	
 int downlist[6] = {3000,5000,700,1300,2400,5000};
-	
+	 
 //# define F_CPU 7372800UL
 
  /*
